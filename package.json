@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/miihnu/cs2808-finalproject2022/issues"
   },
-  "homepage": "https://github.com/miihnu/cs2808-finalproject2022#readme"
+  "homepage": "https://github.com/miihnu/cs2808-finalproject2022#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
