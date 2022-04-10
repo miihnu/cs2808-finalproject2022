@@ -1,10 +1,10 @@
-const database = require("mysql2");
+const mysql = require("mysql2");
 const express = require("express");
 const { json } = require("express/lib/response");
 
 const app = express();
 
-const connection = database.createConnection({
+const connection = mysql.createConnection({
     host:   "localhost",
     username:   "root",
     password:   "jonathan",
@@ -13,6 +13,7 @@ const connection = database.createConnection({
 
 connection.connect(function(err) {
     if (err) {
+        console.log(err);
         console.log("Database connection failed....");
     } else {
         console.log("Database connection successful....");

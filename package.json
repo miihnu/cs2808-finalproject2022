@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/miihnu/cs2808-finalproject2022#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3"
   }
 }
