@@ -1,0 +1,22 @@
+{
+  "name": "final",
+  "version": "2.0.2",
+  "description": "this is our final project for CS2803",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miihnu/cs2808-finalproject2022.git"
+  },
+  "keywords": [
+    "big"
+  ],
+  "author": "Jane Lee & Joel Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miihnu/cs2808-finalproject2022/issues"
+  },
+  "homepage": "https://github.com/miihnu/cs2808-finalproject2022#readme"
+}
