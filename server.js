@@ -11,6 +11,13 @@ const connection = mysql.createConnection({
     database:   "cs2803"
 });
 
+app.get("/registration", function(req, res){
+    res.sendFile(__dirname + "/public/" + "registration.html");
+})
+app.get("/main", function(req, res){
+    res.sendFile(__dirname + "/public/" + "index.html");
+})
+
 connection.connect(function(err) {
     if (err) {
         console.log(err);
