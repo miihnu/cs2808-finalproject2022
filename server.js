@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const express = require("express");
 const { json } = require("express/lib/response");
+const bcrypt = require("bcryptjs");
 
 
 const app = express();
@@ -8,7 +9,7 @@ const app = express();
 const connection = mysql.createConnection({
     host:   "localhost",
     username:   "root",
-    password:   "jonathan",
+    password:   "SQLTeam2021!",
     database:   "cs2803"
 });
 
@@ -19,13 +20,17 @@ app.get("/main", function(req, res){
     res.sendFile(__dirname + "/public/" + "index.html");
 })
 app.post("/attempt-login", function(req, res){
-    console.log(req.body);
-    // we check for the username and password to match to same name database values;
-    // if match, res.json({success:true})
-    // else, res.json({success:false})
+    // we check for the username and password to match.
+    if (req.body.username === username && req.body.password === password){
+        res.json({success: true})
+    }else{
+        res.json({success: false});
+    }    
 })
 app.post("/attempt-register", function(req, res){
-    console.log(req.body)
+    console.log("POST : /attempt-register: " + req.body);
+    console.log(req.body);
+    
     // if there are no same username in database, res.json({success:true})
     // else, res.json({success:false})
 })

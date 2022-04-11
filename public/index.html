@@ -4,8 +4,8 @@
         <title>Final Project</title>
         <link rel="stylesheet" href="project.css">
         <link rel="icon" href="Kanye.jpg">
-        <script src="apihandler.js"></script>
-        <scrip src="index.js"></scrip>
+        <script src="apihandler.js" defer></script>
+        <script src="index.js" defer></script>
     </head>
     <main>
         
@@ -21,7 +21,10 @@
                     <input type="password" id="loginpassword" name="loginpassword">
                 </div>
                 <div>
-                    <input type="button" value="Login" id="loginbutton">
+                    <input type="submit" value="Login" id="loginbutton">
+                </div>
+                <div>
+                    <p id="message"></p>
                 </div>
                 <div>
                     <p>
