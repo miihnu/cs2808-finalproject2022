@@ -8,7 +8,7 @@ const app = express();
 
 const connection = mysql.createConnection({
     host:   "localhost",
-    username:   "root",
+    user:   "root",
     password:   "SQLTeam2021!",
     database:   "cs2803"
 });
@@ -30,6 +30,8 @@ app.post("/attempt-login", function(req, res){
 app.post("/attempt-register", function(req, res){
     console.log("POST : /attempt-register: " + req.body);
     console.log(req.body);
+
+    res.json({ success: false});
     
     // if there are no same username in database, res.json({success:true})
     // else, res.json({success:false})
