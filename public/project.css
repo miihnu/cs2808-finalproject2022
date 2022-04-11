@@ -1,4 +1,6 @@
-#h1-hello {
-    color: blue;
+#h1-hello, #authors, .kanye, #kanye-div {
     text-align: center;
+}
+.kanye {
+    font-size: 1.2em;
 }

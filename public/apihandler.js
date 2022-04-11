@@ -13,13 +13,13 @@ function kanye() {
 }
 
 function responseReceivedHandler() {
-    console.log(this.response);
+    // console.log(this.response);
     
     if (this.status === 200) {
        // console.log(`Kanye Quote: ${this.response.quote}`);
 
        let kanyeParagraph = document.getElementById("kanyeQuote");
-       kanyeParagraph.innerHTML = `Kanye Quote: ${this.response.quote}`;
+       kanyeParagraph.innerHTML = `<i>${this.response.quote}</i>`;
        
     } else {
        console.log("failure");
