@@ -5,12 +5,13 @@
         <link rel="stylesheet" href="project.css">
         <link rel="icon" href="Kanye.jpg">
         <script src="apihandler.js"></script>
+        <scrip src="index.js"></scrip>
     </head>
     <main>
         
         <div id="login-info">
             <h2>Login</h2>
-            <form method ="POST" id="login">
+            <form method ="POST" id="login" action="/attempt-login">
                 <div>
                     <label for="loginuser">Username</label>
                     <input type="text" id="loginuser" name="loginuser">
@@ -18,6 +19,9 @@
                 <div>
                     <label for="loginpassword">Password</label>
                     <input type="password" id="loginpassword" name="loginpassword">
+                </div>
+                <div>
+                    <input type="button" value="Login" id="loginbutton">
                 </div>
                 <div>
                     <p>
