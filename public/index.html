@@ -11,7 +11,7 @@
         
         <div id="login-info">
             <h2>Login</h2>
-            <form method ="POST" id="login" action="/attempt-login">
+            <form method ="POST" id="login-form" action="/attempt-login">
                 <div>
                     <label for="loginuser">Username</label>
                     <input type="text" id="loginuser" name="loginuser">
@@ -22,16 +22,16 @@
                 </div>
                 <div>
                     <input type="submit" value="Login" id="loginbutton">
-                </div>
-                <div>
-                    <p id="message"></p>
-                </div>
-                <div>
-                    <p>
-                        <a href="registration">Click here for registration</a>
-                    </p>
-                </div>
+                </div> 
             </form>
+            <div>
+                <p hidden id="message"></p>
+            </div>
+            <div>
+                <p>
+                    <a href="registration">Click here for registration</a>
+                </p>
+            </div>
         </div>
         <h1 id="h1-hello">
             Welcome to Kanye
