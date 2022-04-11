@@ -23,10 +23,9 @@ function responseHandler(){
     let message = document.getElementById("message")
     message.style.display = "block"
     if (this.response.success){    
-        message.innerText = "Successful login attempt"
+        message.innerText = this.response.message;
     }else{
-        console.log(this.response.success)
-        message.innerText = "Failed login attempt"
+        message.innerText = this.response.message;
     }
 }
 

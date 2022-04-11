@@ -40,12 +40,15 @@ app.post("/attempt-login", function(req, res){
     
     
     connection.query("select password from users where username = ?", [req.body.username], function (err, rows){
-        if(err){
+        console.log(rows.length);
+        if(err) {
             res.json({success: false, message: "user doesn't exists"});
-        }else{
+        } 
+        if (rows.length === 0) {
+            res.json({success: false, message: "user doesn't exists"});
+        } else{
             storedPassword = rows[0].password
             if (bcrypt.compareSync(req.body.password, storedPassword)){
-            
                 // authenticated = true;
                 res.json({success: true, message: "logged in"})
             }else{
