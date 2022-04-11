@@ -1,5 +1,6 @@
 let username = document.getElementById("username")
 let password = document.getElementById("password")
+let registerButton = document.getElementById("register")
 
 username.style.backgroundColor = "orange";
 password.style.backgroundColor = "orange";
@@ -34,3 +35,33 @@ function validate(event) {
         event.preventDefault();
     }
 }
+
+function login(event){
+    console.log("Register button clicked....");
+    event.preventDefault()
+    let xhr = new XMLHttpRequest
+    xhr.addEventListener("load", responseHandler)
+    query=`username=${username.value}&password=${password.value}`
+    console.log(`Query: ${query}`);
+    url = `/attempt-register`
+    xhr.responseType = "json";   
+    xhr.open("POST", url)
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+    console.log("POST request to server....");
+    xhr.send(query)
+}
+
+function responseHandler(){
+    console.log("POST response from server....");
+    let message = document.getElementById("message")
+    message.style.display = "block"
+    if (this.response.success){
+        //message.innerHTML = "register failure";    
+        message.innerText = this.response.message;
+    }else{
+        //message.innerText = this.response = "register success";
+        message.innerText = this.response.message;
+    }
+}
+
+registerButton.addEventListener("click", login)

@@ -9,17 +9,11 @@ function login(event){
     let xhr = new XMLHttpRequest
     xhr.addEventListener("load", responseHandler)
     query=`username=${username.value}&password=${password.value}`
-    // when submitting a GET request, the query string is appended to URL
-    // but in a POST request, do not attach the query string to the url
-    // instead pass it as a parameter in xhr.send()
     console.log(`Query: ${query}`);
     url = `/attempt-login`
     xhr.responseType = "json";   
     xhr.open("POST", url)
-    
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-    // notice the query string is passed as a parameter in xhr.send()
-    // this is to prevent the data from being easily sniffed
     console.log("POST request to server....");
     xhr.send(query)
 }
@@ -29,10 +23,10 @@ function responseHandler(){
     let message = document.getElementById("message")
     message.style.display = "block"
     if (this.response.success){    
-        message.innerText = "response success"
+        message.innerText = "Successful login attempt"
     }else{
         console.log(this.response.success)
-        message.innerText = "response failure"
+        message.innerText = "Failed login attempt"
     }
 }
 
