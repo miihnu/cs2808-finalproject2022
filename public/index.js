@@ -29,4 +29,4 @@ function responseHandler(){
     }
 }
 
-loginButton.addEventListener("click", login)
+loginButton.addEventListener("click", login);
