@@ -16,7 +16,7 @@ function checkUsername(event) {
     username.style.backgroundColor = "orange";
     usernameValid = false;
 
-    if (username.value.length > 5 && username.value.length <= 16) {
+    if (username.value.length >= 5 && username.value.length <= 16) {
         usernameValid = true;
         username.style.backgroundColor = "lightgreen";
     }
@@ -25,15 +25,30 @@ function checkPassword(event) {
     password.style.backgroundColor = "orange";
     passwordValid = false;
 
-    if (password.value.length > 6 && password.value.length <= 16) {
+    if (password.value.length >= 7 && password.value.length <= 16) {
         passwordValid = true;
         password.style.backgroundColor = "lightgreen";
     }
 }
 function validate(event) {
+    let message = document.getElementById("message");
+    message.style.display = "block";
     if (!(usernameValid && passwordValid)) {
         event.preventDefault();
+        if (!usernameValid && !passwordValid) {
+            message.innerText = "invalid username and password";
+        } else if (!usernameValid && passwordValid) {
+            message.innerText = "invalid username";
+        } else if (!passwordValid && usernameValid) {
+            message.innerText = "invalid password";
+        } else {
+            message.innerText = "undefined behavior"
+        }
+        
+    } else {
+        login(event);
     }
+    
 }
 
 function login(event){
@@ -64,4 +79,4 @@ function responseHandler(){
     }
 }
 
-registerButton.addEventListener("click", login)
+registerButton.addEventListener("click", validate)
