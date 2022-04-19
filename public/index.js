@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     url = `/checkedLoggedIn`
     xhr.responseType = "json";   
     xhr.open("GET", url)
-    console.log("GET leaderboard request to server....");
+    console.log("GET /checkedLoggedIn request to server....");
     xhr.send();
 });
 
@@ -75,8 +75,23 @@ function responseHandler(){
 }
 
 loginButton.addEventListener("click", login);
+
 document.getElementById("log-out-button").addEventListener("click", function(event) {
     authenticated = false;
+    let xhr = new XMLHttpRequest
+    xhr.addEventListener("load", serverCheck)
+    url = `/update-authenticated`
+    xhr.responseType = "json";   
+    xhr.open("GET", url)
+    xhr.send();
     currUser = "Should not see";
     check();
 })
+
+function serverCheck() {
+    if (this.response.success) {
+        console.log("good response from update-authenticated");
+    } else {
+        console.log("bad response from update-authenticated");
+    }
+}

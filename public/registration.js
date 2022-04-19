@@ -1,3 +1,12 @@
+let currUser;
+let authenticated = false;
+
+function check() {
+    if (authenticated) {
+        document.getElementById("registration").style.display = "none";
+    }
+}
+
 let username = document.getElementById("username")
 let password = document.getElementById("password")
 let registerButton = document.getElementById("register")
@@ -73,9 +82,13 @@ function responseHandler(){
     if (this.response.success){
         //message.innerHTML = "register failure";    
         message.innerText = this.response.message;
+        authenticated = true;
+        check();
     }else{
         //message.innerText = this.response = "register success";
         message.innerText = this.response.message;
+        authenticated = false;
+        
     }
 }
 

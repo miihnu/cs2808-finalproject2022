@@ -19,14 +19,10 @@ const connection = mysql.createConnection({
 });
 
 
-
-
-// const logRequest = function(req, res, next){
-//     console.log(`Request: ${req}`)
-//     next() // definitely include this
-// }
-
-// app.use(logRequest);
+app.get("/update-authenticated", function(req, res) {
+    authenticated = false;
+    res.json({success: true})
+})
 
 app.get("/registration", function(req, res){
     res.sendFile(__dirname + "/public/" + "registration.html");
@@ -73,7 +69,7 @@ app.post("/attempt-login", function(req, res){
             res.json({success: false, message: "database query error"});
         } 
         if (rows.length === 0) {
-            res.json({success: false, message: "user doesn't exists"});
+            res.json({success: false, message: "user doesn't exist"});
         } else {
             storedPassword = rows[0].password
             if (bcrypt.compareSync(salt + req.body.password, storedPassword)){
