@@ -47,9 +47,7 @@ app.get("/leaderboard", function(req, res) {
     })
 })
 app.get("/checkedLoggedIn", function(req, res) { 
-    console.log("Server received POST to /checkedLoggedIn...");
-
-    console.log("signed in: " + authenticated);
+    // console.log("Server received POST to /checkedLoggedIn...");
     if (authenticated) {
         res.json({success: true, message: "User is signed in", user: currUser})
     } else {
@@ -58,11 +56,7 @@ app.get("/checkedLoggedIn", function(req, res) {
 })
 
 app.post("/attempt-login", function(req, res){
-    console.log("Server received POST to /attempt-login....");
-    console.log("username: " + req.body.username); 
-    console.log("password: " + req.body.password); 
-    
-    
+    // console.log("Server received POST to /attempt-login....");    
     connection.query("select password from users where username = ?", [req.body.username], function (err, rows) {
         // console.log(rows.length);
         if (err) {
@@ -77,22 +71,38 @@ app.post("/attempt-login", function(req, res){
                 res.json({success: true, message: "logged in", user: req.body.username})
                 authenticated = true;
                 currUser = req.body.username;
-                console.log(currUser);
+                // console.log(currUser);
             }else {
                 res.json({success: false, message:"password is incorrect"})
             }
         }
     })
 })
+app.post("/save-quote", function(req, res) {
+    saveQuery = "update users set quote=? where username=?";
+    connection.query(saveQuery, [req.body.quote, req.body.username], function(err, rows) {
+        if (err) {
+            res.json({success:false, message:"server error, location one"})
+        } else {
+            res.json({success:true})
+        }
+    })
+    
+
+});
+app.get("/display-quote", function(req, res) {
+    userQuery = "select username, quote from users where username=?"
+    connection.query(userQuery, [req.query.username], function(err, rows) {
+        if (err) {
+            res.json({success: false, message:"database query failed for /display-quote"})
+        } else {
+            res.json({success: true, quote: rows[0].quote})
+        }
+    })
+})
 
 app.post("/attempt-register", function(req, res) {
-    console.log("Server received POST to /attempt-register....");
-
-    console.log("username: " + req.body.username); 
-    console.log("password: " + req.body.password);
-
-    console.log(req.body.password);
-    
+    console.log("Server received POST to /attempt-register....");    
     usernameQuery = "Select username from users where username  = ?"
             connection.query(usernameQuery, [req.body.username], function(err, rows){ 
                 if(err){
@@ -125,7 +135,6 @@ connection.connect(function(err) {
 });
 
 
-// app.use(express.urlencoded({ extended:false }));
 app.use(express.static("public"))
 
 app.listen(3000, function() {

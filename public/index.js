@@ -4,9 +4,13 @@ let password = document.getElementById("loginpassword")
 let logout = document.getElementById("log-out-div")
 let authenticated = false;
 let currUser;
-let quote;
+var quote;
+document.getElementById("save-quote").addEventListener("click", saveQuote)
 
 document.addEventListener("DOMContentLoaded", (event) => {
+
+    document.getElementById("quote-div").style.display="block";
+       document.getElementById("save-quote").style.display="none";
     let xhr = new XMLHttpRequest
     xhr.addEventListener("load", authenticator)
     url = `/checkedLoggedIn`
@@ -16,40 +20,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
     xhr.send();
 });
 
-function saveQuote() {
-    if (authenticated) {
-        
-
-
-
-
-
-        displayQuote();
-    }
-}
-function displayQuote() {
-
-}
 
 function authenticator() {
     if (this.response.success) {
         currUser = this.response.user;
         console.log("In authenticator: currUser = " + currUser);
         authenticated = true;
+        displayQuote();
     } else {
         authenticated = false;
+        document.getElementById("save-quote").style.display="none";
     }
     check();
 }
 
 function check() {
     if (authenticated) {
-
         console.log("Authentication check called....");
         document.getElementById("login-info").style.display = "none";
         document.getElementById("h1-hello").innerText += ", " + currUser;
         document.getElementById("reg-link").style.display = "none";
         logout.style.display = "block";
+        // document.getElementById("quote-div").style.display="block";
+        // document.getElementById("save-quote").style.display="block";
+        displayQuote();
     } else {
         currUser = "";
         document.getElementById("login-info").style.display = "block";
@@ -58,6 +52,47 @@ function check() {
         logout.style.display = "none";
         document.getElementById("message").style.display = "none";
         document.getElementById("login-form").reset();
+        document.getElementById("save-quote").style.display="none";
+        document.getElementById("quote-div").style.display="none";
+    }
+}
+
+function saveQuote() {
+    let xhr = new XMLHttpRequest;
+    let kanyeQuote = document.getElementById("kanyeQuote").innerText;
+    console.log(kanyeQuote);
+    xhr.addEventListener("load", saveQuoteHandler);
+    if (!quote) {
+        kanye();
+    }
+    let query = `username=${currUser}&quote=${kanyeQuote}`;
+    xhr.responseType = "json";
+    xhr.open("POST", "/save-quote");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+    xhr.send(query);
+}
+
+function saveQuoteHandler() {
+    if (this.response.success) {
+        displayQuote();
+    } else {
+        console.log(this.response.message);
+    }
+}
+function displayQuote() {
+    let xhr = new XMLHttpRequest
+    xhr.addEventListener("load", displayQuoteHandler)
+    query=`username=${currUser}`;
+    xhr.responseType="json";
+    xhr.open("GET", "/display-quote?" + query)
+    xhr.send();
+}
+function displayQuoteHandler() {
+    if (this.response.success) {
+        console.log(this.response.quote);
+        document.getElementById("user-quote").innerHTML = `Your saved quote: <i>${this.response.quote}</i>`;
+    } else {
+        console.log(this.response.message);
     }
 }
 
@@ -113,6 +148,7 @@ function serverCheck() {
         console.log("bad response from update-authenticated");
     }
 }
+
 window.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#kanye").addEventListener('click', function() {
         kanye();
@@ -125,20 +161,17 @@ function kanye() {
     xhr.responseType = "json";
     xhr.open("GET", "https://api.kanye.rest/")
     xhr.send()
+    
 }
 
-function responseReceivedHandler() {
-    // console.log(this.response);
-    
+function responseReceivedHandler() {    
     if (this.status === 200) {
-       // console.log(`Kanye Quote: ${this.response.quote}`);
-
        let kanyeParagraph = document.getElementById("kanyeQuote");
        quote = this.response.quote;
        kanyeParagraph.innerHTML = `<i>${this.response.quote}</i>`;
-       
+       document.getElementById("quote-div").style.display="block";
+       document.getElementById("save-quote").style.display="block";
     } else {
        console.log("failure");
-       
     }
  }
