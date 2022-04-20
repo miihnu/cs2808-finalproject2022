@@ -3,7 +3,7 @@ const express = require("express");
 const { json } = require("express/lib/response");
 const bcrypt = require("bcryptjs");
 const costFactor = 6;
-const salt = "teamjj"
+const salt = "teamjj";
 
 let authenticated = false;
 let currUser;
@@ -17,7 +17,6 @@ const connection = mysql.createConnection({
     password:   "SQLTeam2021!",
     database:   "cs2803"
 });
-
 
 app.get("/update-authenticated", function(req, res) {
     authenticated = false;

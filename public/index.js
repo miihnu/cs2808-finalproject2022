@@ -170,7 +170,11 @@ function responseReceivedHandler() {
        quote = this.response.quote;
        kanyeParagraph.innerHTML = `<i>${this.response.quote}</i>`;
        document.getElementById("quote-div").style.display="block";
-       document.getElementById("save-quote").style.display="block";
+       if (authenticated) {
+        document.getElementById("save-quote").style.display="block";
+       } else {
+        document.getElementById("save-quote").style.display="none";
+       }
     } else {
        console.log("failure");
     }
