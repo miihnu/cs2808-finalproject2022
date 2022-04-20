@@ -4,6 +4,7 @@ let password = document.getElementById("loginpassword")
 let logout = document.getElementById("log-out-div")
 let authenticated = false;
 let currUser;
+let quote;
 
 document.addEventListener("DOMContentLoaded", (event) => {
     let xhr = new XMLHttpRequest
@@ -14,6 +15,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
     console.log("GET /checkedLoggedIn request to server....");
     xhr.send();
 });
+
+function saveQuote() {
+    if (authenticated) {
+        
+
+
+
+
+
+        displayQuote();
+    }
+}
+function displayQuote() {
+
+}
 
 function authenticator() {
     if (this.response.success) {
@@ -28,12 +44,14 @@ function authenticator() {
 
 function check() {
     if (authenticated) {
+
         console.log("Authentication check called....");
         document.getElementById("login-info").style.display = "none";
         document.getElementById("h1-hello").innerText += ", " + currUser;
         document.getElementById("reg-link").style.display = "none";
         logout.style.display = "block";
     } else {
+        currUser = "";
         document.getElementById("login-info").style.display = "block";
         document.getElementById("h1-hello").innerText = "Hello"
         document.getElementById("reg-link").style.display = "inline";
@@ -95,3 +113,32 @@ function serverCheck() {
         console.log("bad response from update-authenticated");
     }
 }
+window.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("#kanye").addEventListener('click', function() {
+        kanye();
+    })
+})
+
+function kanye() {
+    let xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", responseReceivedHandler);
+    xhr.responseType = "json";
+    xhr.open("GET", "https://api.kanye.rest/")
+    xhr.send()
+}
+
+function responseReceivedHandler() {
+    // console.log(this.response);
+    
+    if (this.status === 200) {
+       // console.log(`Kanye Quote: ${this.response.quote}`);
+
+       let kanyeParagraph = document.getElementById("kanyeQuote");
+       quote = this.response.quote;
+       kanyeParagraph.innerHTML = `<i>${this.response.quote}</i>`;
+       
+    } else {
+       console.log("failure");
+       
+    }
+ }
