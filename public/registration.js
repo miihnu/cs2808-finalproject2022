@@ -84,11 +84,10 @@ function responseHandler(){
         message.innerText = this.response.message;
         authenticated = true;
         check();
-    }else{
+    } else{
         //message.innerText = this.response = "register success";
         message.innerText = this.response.message;
         authenticated = false;
-        
     }
 }
 

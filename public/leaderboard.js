@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     xhr.send();
 });
 
-// const loadLeaderboard = setInterval(leaderboard, 5000)
+const loadLeaderboard = setInterval(leaderboard, 10000)
 
 function leaderboard() {
     let xhr = new XMLHttpRequest

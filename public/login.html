@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login Page</title>
+        <link rel="icon" href="Kanye.jpg">
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="login.css">
+        <script src="login.js" defer></script>
+    </head>
+    <body>
+        <div class="nav">
+            <a href="main">Main Page</a>
+            <a href="registration">Registration Page</a>
+            <a href="game">Game Page</a>
+            <a href="login">Login Page</a>
+        </div>
+        <div id="container">
+            <div id="page-div">
+                <h2>Kanye said...</h2>
+                <h1><i>Login</i></h1>
+            </div>
+            <div id="login-div">
+                <form method ="POST" id="login-form" action="/attempt-login">
+                    <div>
+                        <label for="loginuser" class="label">Username</label>
+                        <input type="text" class ="input" id="loginuser" name="loginuser">
+                    </div>
+                    <div>
+                        <label for="loginpassword" class="label">Password</label>
+                        <input type="password" class ="input" id="loginpassword" name="loginpassword">
+                    </div>
+                    <div>
+                        <input type="submit" class="button" value="Login" id="loginbutton">
+                    </div> 
+                </form>
+            </div>
+            <div id="result-div">
+                <p hidden id="message"></p>
+            </div>
+        </div>
+    </body>
+</html>

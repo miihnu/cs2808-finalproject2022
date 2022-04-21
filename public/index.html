@@ -3,11 +3,19 @@
         <meta charset="UTF-8">
         <title>Final Project</title>
         <link rel="stylesheet" href="project.css">
+        <link rel="stylesheet" href="navbar.css">
         <link rel="icon" href="Kanye.jpg">
         <script src="index.js" defer></script>
     </head>
-    <main>
-        
+    <nav>
+        <div class="nav">
+            <a href="main">Main Page</a>
+            <a href="registration">Registration Page</a>
+            <a href="game">Game Page</a>
+            <a href="login">Login Page</a>
+        </div>
+    </nav>
+    <div id="container">
         <div id="login-info">
             <h2>Login</h2>
             <form method ="POST" id="login-form" action="/attempt-login">
@@ -26,7 +34,6 @@
             <div>
                 <p hidden id="message"></p>
             </div>
-            
         </div>
         <div>
             <p id="reg-link">
@@ -63,5 +70,5 @@
                 <button id="save-quote">Save Quote?</button>
             </div>
         </div>
-    </main>
+    </div>
 </html>

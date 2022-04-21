@@ -5,10 +5,10 @@ let logout = document.getElementById("log-out-div")
 let authenticated = false;
 let currUser;
 var quote;
+const APIKEY = "a9eb78acce258mjsf5a8f1q821";
 document.getElementById("save-quote").addEventListener("click", saveQuote)
 
 document.addEventListener("DOMContentLoaded", (event) => {
-
     document.getElementById("quote-div").style.display="block";
        document.getElementById("save-quote").style.display="none";
     let xhr = new XMLHttpRequest
@@ -159,7 +159,7 @@ function kanye() {
     let xhr = new XMLHttpRequest();
     xhr.addEventListener("load", responseReceivedHandler);
     xhr.responseType = "json";
-    xhr.open("GET", "https://api.kanye.rest/")
+    xhr.open("GET", "https://api.kanye.rest/" + APIKEY);
     xhr.send()
     
 }

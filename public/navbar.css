@@ -1,0 +1,22 @@
+.nav {
+    display: flex;
+    flex: 0 1 auto;
+    overflow: hidden;
+    background-color: goldenrod;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    justify-content: space-around;    
+  }
+  .nav a {
+    float: left;
+    display: block;
+    color: #eeeeee;
+    text-align: center;
+    padding: 15px 18px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .nav a:hover {
+    color: black;
+  }

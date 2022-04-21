@@ -32,6 +32,9 @@ app.get("/main", function(req, res){
 app.get("/game", function(req, res) {
     res.sendFile(__dirname + "/public/" + "game.html")
 })
+app.get("/login", function(req, res) {
+    res.sendFile(__dirname + "/public/" + "login.html")
+})
 
 app.use(express.json());
 
@@ -40,7 +43,7 @@ app.get("/leaderboard", function(req, res) {
         if (err) {
             res.json({success: false, message: "query failed"})
         } else {
-            console.log(rows);
+            // console.log(rows);
             res.json({success: true, message: "query successful", response: rows})
         }
     })
@@ -62,17 +65,16 @@ app.post("/attempt-login", function(req, res){
             res.json({success: false, message: "database query error"});
         } 
         if (rows.length === 0) {
-            res.json({success: false, message: "user doesn't exist"});
+            res.json({success: false, message: "incorrect username or password"});
         } else {
             storedPassword = rows[0].password
             if (bcrypt.compareSync(salt + req.body.password, storedPassword)){
-                // authenticated = true;
                 res.json({success: true, message: "logged in", user: req.body.username})
                 authenticated = true;
                 currUser = req.body.username;
                 // console.log(currUser);
             }else {
-                res.json({success: false, message:"password is incorrect"})
+                res.json({success: false, message:"incorrect username or password"})
             }
         }
     })

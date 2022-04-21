@@ -1,4 +1,5 @@
 #h1-hello, #authors, .kanye, #kanye-div {
+
     text-align: center;
 }
 .kanye {
@@ -6,4 +7,7 @@
 }
 #authors {
     color: blue;
+}
+#container {
+    margin-top: 100px;
 }
