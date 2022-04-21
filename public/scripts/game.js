@@ -1,5 +1,3 @@
-
-
 var canvas = document.createElement("canvas");
 canvas.width = 900;
 canvas.height = 600;

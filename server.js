@@ -24,16 +24,16 @@ app.get("/update-authenticated", function(req, res) {
 })
 
 app.get("/registration", function(req, res){
-    res.sendFile(__dirname + "/public/" + "registration.html");
+    res.sendFile(__dirname + "/public/views/" + "registration.html");
 })
 app.get("/main", function(req, res){
-    res.sendFile(__dirname + "/public/" + "index.html");
+    res.sendFile(__dirname + "/public/views/" + "index.html");
 })
 app.get("/game", function(req, res) {
-    res.sendFile(__dirname + "/public/" + "game.html")
+    res.sendFile(__dirname + "/public/views/" + "game.html")
 })
 app.get("/login", function(req, res) {
-    res.sendFile(__dirname + "/public/" + "login.html")
+    res.sendFile(__dirname + "/public/views/" + "login.html")
 })
 
 app.use(express.json());

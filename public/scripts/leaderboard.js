@@ -1,11 +1,11 @@
+let authenticated = false;
+let currUser;
 let updateLeaderBoard = false;
 if (updateLeaderBoard == true) {
     updateLeaderBoard = false;
     leaderboard();
 }
 document.getElementById("update").addEventListener("click", leaderboard);
-
-let authenticated = false;
 
 document.addEventListener("DOMContentLoaded", (event) => {
     let xhr = new XMLHttpRequest
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     xhr.send();
 });
 
-const loadLeaderboard = setInterval(leaderboard, 10000)
+// const loadLeaderboard = setInterval(leaderboard, 10000)
 
 function leaderboard() {
     let xhr = new XMLHttpRequest
@@ -65,7 +65,8 @@ function authenticator() {
     status.style.display = "block";
 
     if (this.response.success) {
-        status.innerText = this.response.message;
+        currUser = this.response.user;
+        status.innerText = `Hello, ${currUser}`;
         authenticated = true;
     } else {
         status.innerText = this.response.message;

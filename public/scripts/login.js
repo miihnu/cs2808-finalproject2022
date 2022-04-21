@@ -62,7 +62,7 @@ function check () {
     if (authenticated) {
         document.getElementById("login-div").style.display="none";
         message.style.display = "inline";
-        message.innerHTML = `<p>You already are signed in.</p>
+        message.innerHTML = `<p>You are signed in.</p>
                             <p>Do you wish to <button class="button" id="sign-out">sign out?</button></p>`
     } else {
         document.getElementById("login-div").style.display="block";

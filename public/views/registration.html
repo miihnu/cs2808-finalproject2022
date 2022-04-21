@@ -2,9 +2,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Registration and Login Page</title>
-        <script src="registration.js" defer></script>
-        <link rel="stylesheet" href="navbar.css">
-        <link rel="icon" href="Kanye.jpg">
+        <script src="scripts/registration.js" defer></script>
+        <link rel="stylesheet" href="styles/navbar.css">
+        <link rel="stylesheet" href="styles/registration.css">
+        <link rel="icon" href="img/Kanye.jpg">
     </head>
     <body>
         <div class="nav">
@@ -14,24 +15,28 @@
             <a href="login">Login Page</a>
         </div>
         <div id="container">
-            <h2>Registration Page</h2>
-            <h4>
-                <a href="main">Click here to go to main page</a>
-            </h4>
+            <div id="page-div">
+                <h2>Kanye said...</h2>
+                <h1><i>Register</i></h1>
+            </div>
+            <div hidden id="log-out">
+                <p>You are already logged in</p>
+                <p>Do you wish to log out and create a new account?</p>
+                <button id="log-out-button">Yes</button>
+            </div>
             <form method="POST" id="registration" action="/attempt-register">
+                <div>
+                    <p><b>Create a username and password</b></p>
+                </div>
                 <div>
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username">
-                    <p id="username-reqs">
-                        5 <= Username length <= 16
-                    </p>
+                    <p id="username-reqs"><u>Username has to be at least 5 characters, not exceeding 16 charactors total.></u></p>
                 </div>
                 <div>
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password">
-                    <p id="password-reqs">
-                        7 < Password length <= 16
-                    </p>
+                    <p id="password-reqs"><u>Password has to be at least 5 characters, not exceeding 16 charactors total.</u></p>
                 </div>
                 <div>
                     <input type="submit" value="Register" id="register">

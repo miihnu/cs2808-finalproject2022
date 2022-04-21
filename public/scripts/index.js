@@ -37,23 +37,16 @@ function authenticator() {
 function check() {
     if (authenticated) {
         console.log("Authentication check called....");
-        document.getElementById("login-info").style.display = "none";
-        document.getElementById("h1-hello").innerText += ", " + currUser;
-        document.getElementById("reg-link").style.display = "none";
+        document.getElementById("hello-user").innerText += ", " + currUser;
         logout.style.display = "block";
-        // document.getElementById("quote-div").style.display="block";
-        // document.getElementById("save-quote").style.display="block";
         displayQuote();
     } else {
         currUser = "";
-        document.getElementById("login-info").style.display = "block";
-        document.getElementById("h1-hello").innerText = "Hello"
-        document.getElementById("reg-link").style.display = "inline";
+        document.getElementById("hello-user").innerText = "Hello"
         logout.style.display = "none";
-        document.getElementById("message").style.display = "none";
-        document.getElementById("login-form").reset();
         document.getElementById("save-quote").style.display="none";
         document.getElementById("quote-div").style.display="none";
+        document.getElementById("user-quote").style.display="none";
     }
 }
 
@@ -89,8 +82,9 @@ function displayQuote() {
 }
 function displayQuoteHandler() {
     if (this.response.success) {
-        console.log(this.response.quote);
-        document.getElementById("user-quote").innerHTML = `Your saved quote: <i>${this.response.quote}</i>`;
+        if (this.response.quote) {
+            document.getElementById("user-quote").innerHTML = `Your saved quote: <i>${this.response.quote}</i>`;
+        }
     } else {
         console.log(this.response.message);
     }
@@ -127,7 +121,7 @@ function responseHandler(){
     }
 }
 
-loginButton.addEventListener("click", login);
+// loginButton.addEventListener("click", login);
 
 document.getElementById("log-out-button").addEventListener("click", function(event) {
     authenticated = false;
@@ -137,7 +131,6 @@ document.getElementById("log-out-button").addEventListener("click", function(eve
     xhr.responseType = "json";   
     xhr.open("GET", url)
     xhr.send();
-    currUser = "Should not see";
     check();
 })
 
