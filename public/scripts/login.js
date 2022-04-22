@@ -1,3 +1,7 @@
+let messageTwo = document.getElementById("messageTwo");
+let message = document.getElementById("message");
+let messageDiv = document.getElementById("result-div");
+
 document.addEventListener("DOMContentLoaded", (event) => {
     let xhr = new XMLHttpRequest
     xhr.addEventListener("load", authenticator)
@@ -42,7 +46,6 @@ function login(event){
 
 function responseHandler(){
     console.log("POST response from server....");
-    let message = document.getElementById("message")
     message.style.display = "block";
     if (this.response.success) {    
         message.innerText = this.response.message;
@@ -61,11 +64,17 @@ function responseHandler(){
 function check () {
     if (authenticated) {
         document.getElementById("login-div").style.display="none";
-        message.style.display = "inline";
-        message.innerHTML = `<p>You are signed in.</p>
-                            <p>Do you wish to <button class="button" id="sign-out">sign out?</button></p>`
+        message.style.display = "none";
+        messageTwo.style.display = "block";
+        
     } else {
         document.getElementById("login-div").style.display="block";
-        
+        message.style.display = "block";
+        messageTwo.style.display = "none";
     }
 }
+document.getElementById("sign-out").addEventListener("click", function(event) {
+    authenticated = false;
+    console.log("working");
+    check();
+})

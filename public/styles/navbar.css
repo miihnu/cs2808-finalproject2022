@@ -2,21 +2,42 @@
     display: flex;
     flex: 0 1 auto;
     overflow: hidden;
-    background-color: goldenrod;
+    background-color: rgb(21, 199, 222);
     position: fixed;
     top: 0;
     width: 100%;
     justify-content: space-around;    
   }
-  .nav a {
-    float: left;
-    display: block;
-    color: #eeeeee;
-    text-align: center;
-    padding: 15px 18px;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  .nav a:hover {
-    color: black;
-  }
+.nav a {
+  float: left;
+  display: block;
+  color: rgb(73, 125, 255);
+  text-align: center;
+  padding: 15px 18px;
+  text-decoration: none;
+  font-size: 18px;
+  border-style: solid;
+  border-color: black;
+}
+.nav a:hover {
+  color: black;
+}
+.footer {
+  display: flex;
+  flex: 0 1 auto;
+  overflow: hidden;
+  background-color: rgb(21, 199, 222);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-around;  
+}
+.footer h4 {
+  /* float: left; */
+  display: block;
+  color: lightsalmon;
+  text-align: center;
+  padding: 15px 18px;
+  text-decoration: none;
+  font-size: 18px;
+}

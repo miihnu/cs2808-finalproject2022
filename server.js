@@ -17,12 +17,13 @@ const connection = mysql.createConnection({
     password:   "SQLTeam2021!",
     database:   "cs2803"
 });
-
+app.get("/", function(req, res) {
+    res.sendFile(__dirname + "/public/views/" + "index.html")
+})
 app.get("/update-authenticated", function(req, res) {
     authenticated = false;
     res.json({success: true})
 })
-
 app.get("/registration", function(req, res){
     res.sendFile(__dirname + "/public/views/" + "registration.html");
 })
