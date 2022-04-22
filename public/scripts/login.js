@@ -30,22 +30,18 @@ let currUser;
 loginButton.addEventListener("click", login);
 
 function login(event){
-    console.log("Login button clicked....");
     event.preventDefault()
     let xhr = new XMLHttpRequest
     xhr.addEventListener("load", responseHandler)
     query=`username=${username.value}&password=${password.value}`
-    console.log(`Query: ${query}`);
     url = `/attempt-login`
     xhr.responseType = "json";   
     xhr.open("POST", url)
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-    console.log("POST request to server....");
     xhr.send(query)
 }
 
 function responseHandler(){
-    console.log("POST response from server....");
     message.style.display = "block";
     if (this.response.success) {    
         message.innerText = this.response.message;
@@ -55,12 +51,13 @@ function responseHandler(){
         password.value = ""
         check();
         authenticated = true;
-
+        swapPage();
     }else {
         message.innerHTML =`<p>${this.response.message}</p> <p>New user? Register <a id="reg" href=registration>here</a></p>`;
         authenticated = false;
     }
 }
+
 function check () {
     if (authenticated) {
         document.getElementById("login-div").style.display="none";
@@ -77,4 +74,25 @@ document.getElementById("sign-out").addEventListener("click", function(event) {
     authenticated = false;
     console.log("working");
     check();
+
 })
+
+document.getElementById("sign-out").addEventListener("click", function(event) {
+    authenticated = false;
+    let xhr = new XMLHttpRequest
+    xhr.addEventListener("load", serverCheck)
+    url = `/update-authenticated`
+    xhr.responseType = "json";   
+    xhr.open("GET", url)
+    xhr.send();
+    currUser = "Should not see";
+    check();
+})
+
+function serverCheck() {
+    if (this.response.success) {
+        console.log("good response from update-authenticated");
+    } else {
+        console.log("bad response from update-authenticated");
+    }
+}

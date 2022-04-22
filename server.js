@@ -36,7 +36,9 @@ app.get("/game", function(req, res) {
 app.get("/login", function(req, res) {
     res.sendFile(__dirname + "/public/views/" + "login.html")
 })
-
+app.get("/changePage", function(req, res) {
+    res.sendFile(__dirname + "/public/views/" + "index.html")
+})
 app.use(express.json());
 
 app.get("/leaderboard", function(req, res) { 
@@ -61,7 +63,6 @@ app.get("/checkedLoggedIn", function(req, res) {
 app.post("/attempt-login", function(req, res){
     // console.log("Server received POST to /attempt-login....");    
     connection.query("select password from users where username = ?", [req.body.username], function (err, rows) {
-        // console.log(rows.length);
         if (err) {
             res.json({success: false, message: "database query error"});
         } 
