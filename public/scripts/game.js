@@ -1,7 +1,7 @@
 var canvas = document.createElement("canvas");
 canvas.width = 900;
 canvas.height = 600;
-canvas.style = "position: absolute; top: 170px; left: 0px; right: 0px; bottom: 0px; margin: auto; border:5px solid black";
+canvas.style = "position: absolute; top: 80px; left: 0px; right: 0px; bottom: 0px; margin: auto; border:5px solid black";
 document.body.insertBefore(canvas, document.body.firstChild);
 
 ctx = canvas.getContext("2d");
@@ -37,7 +37,6 @@ var x = 150,  //initial x
 
 function reset() {
     coincount = 0;
-    
 }
 
 function draw_scene() {
@@ -169,8 +168,8 @@ function spawnEnemy() {
         }
     }
 
-    if (enemyx >= canvas.width - drake.width) {
-        enemyx = canvas.width - drake.width;
+    if (enemyx >= canvas.width - rival.width) {
+        enemyx = canvas.width - rival.width;
     } else if (enemyx <= 0) {
         enemyx = 0;
     }
@@ -182,16 +181,15 @@ function spawnEnemy() {
     }
 
     if (((x < enemyx && enemyx < x + rival.width) || (enemyx < x && x < enemyx + rival.width)) && ( (y < enemyy && enemyy < y + rival.height) || (enemyy < y && y < enemyy + rival.height))) {
-        alert("game over!!");
-        reset();
+        console.log("game over!!");
     }
 
     if (coincount <= 5 && bossEaten == 0) {
-        rival.src = "img/drake.PNG";
+        rival.src = "img/drake.PNG"
         ctx.drawImage(rival, enemyx, enemyy);
         
     } else if (coincount > 5 && coincount <= 10) {
-        rival.src = "img/taylor.PNG";
+        rival.src = "img/taylor.PNG"
         ctx.drawImage(rival, enemyx, enemyy);
     }
 }
