@@ -28,10 +28,33 @@ body {
 }
 #quote {
     color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    font-style: italic;
 }
+
 #kanye {
     margin-top: 7px;
 }
+
+#kanyeLabel {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    /* font-style: italic; */
+    margin: 10px;
+    /* margin-bottom: 30px; */
+
+}
+
+#kanyeQuote {
+    /* width: 600px; */
+    width: 400px;
+    height: 250px;
+    /* margin-top: 50px; */
+    margin-left: 700px;
+    align-items: center;
+}
+
 #page-div {
     margin-top: 30px;
     text-align: center;
@@ -59,6 +82,8 @@ body {
     cursor: pointer;
     text-decoration: underline;
 }
+
+/* kanyebutton */
 .button {
     display:inline;
     color: greenyellow;
@@ -69,12 +94,15 @@ body {
     text-decoration: none;
     border-style: none;
     text-align: center;
+    font-size: medium;
+    font-family: 'Times New Roman';
 }
 
 .button:hover {
     cursor: pointer;
     text-decoration: underline;
 }
+
 #log-out-div {
     display:flex;
     flex-direction: column;
@@ -86,5 +114,12 @@ body {
     align-self: center;
     background-color: lightsalmon;
     text-align: center;
+}
+
+a {
+    border-radius: 10px;
+    border-style: groove;
+    border-width: 4px;
+
 }
 

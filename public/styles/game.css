@@ -22,6 +22,8 @@
 #newGameButton:hover {
     background-color: yellowgreen;
     border-color: darkgreen;
+    cursor: pointer;
+
 }
 
 #gameTitle {
@@ -53,6 +55,8 @@
 #update:hover {
     background-color:powderblue;
     border-color: darkblue;
+    cursor: pointer;
+
 }
 
 nav {
