@@ -5,4 +5,76 @@
 
 #newGameButton {
     text-align: center;
+<<<<<<< Updated upstream:public/game.css
+=======
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin-left: 25px;
+    margin-top: 100px;
+    background-color: goldenrod;
+    border-color: black;
+}
+
+#newGameButton:hover {
+    background-color: yellowgreen;
+    border-color: darkgreen;
+}
+
+#gameTitle {
+    display: flex;
+    justify-content: space-evenly;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 0px;
+
+}
+
+#update {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-top: 50px;
+    background-color: skyblue;
+    border-color: black;
+
+}
+
+#update:hover {
+    background-color:powderblue;
+    border-color: darkblue;
+}
+
+nav {
+    margin-bottom: 50px;
+}
+
+body {
+    background-color: beige;
+}
+
+h2 {
+    /* display: flex;
+    justify-content: space-between; */
+    width: 80px;
+    height: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 85px;
+
+>>>>>>> Stashed changes:public/styles/game.css
 }
