@@ -3,6 +3,10 @@
     margin-top: 10px;
 }
 
+canvas {
+    style: flex;
+}
+
 #newGameButton {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
@@ -33,7 +37,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    margin-top: 0px;
+    margin-top: 60px;
 
 }
 

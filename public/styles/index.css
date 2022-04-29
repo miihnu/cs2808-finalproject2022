@@ -4,6 +4,7 @@ body {
     color: black;
 }
 #container {
+    margin-top: 20px;
     display:flex;
     flex-direction: column;
     padding: 5px;
@@ -86,7 +87,7 @@ body {
 /* kanyebutton */
 .button {
     display:inline;
-    color: greenyellow;
+    color: rgb(236, 187, 26);
     background-color: black;
     margin-top: 5px;
     border-radius: 20px;
@@ -112,14 +113,9 @@ body {
 #footer {
     width: 100%;
     align-self: center;
-    background-color: lightsalmon;
+    background-color: rgb(239, 200, 129);
     text-align: center;
 }
 
-a {
-    border-radius: 10px;
-    border-style: groove;
-    border-width: 4px;
 
-}
 

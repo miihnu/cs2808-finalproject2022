@@ -37,6 +37,7 @@ var x = 150,  //initial x
 
 function reset() {
     coincount = 0;
+    
 }
 
 function draw_scene() {
@@ -181,15 +182,16 @@ function spawnEnemy() {
     }
 
     if (((x < enemyx && enemyx < x + rival.width) || (enemyx < x && x < enemyx + rival.width)) && ( (y < enemyy && enemyy < y + rival.height) || (enemyy < y && y < enemyy + rival.height))) {
-        console.log("game over!!");
+        alert("game over!!");
+        reset();
     }
 
     if (coincount <= 5 && bossEaten == 0) {
-        rival.src = "img/drake.PNG"
+        rival.src = "img/drake.PNG";
         ctx.drawImage(rival, enemyx, enemyy);
         
     } else if (coincount > 5 && coincount <= 10) {
-        rival.src = "img/taylor.PNG"
+        rival.src = "img/taylor.PNG";
         ctx.drawImage(rival, enemyx, enemyy);
     }
 }

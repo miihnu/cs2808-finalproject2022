@@ -2,6 +2,7 @@ body {
     font-family: Georgia, serif, 'Times New Roman', Times;
     background-color: beige;
     color:black;
+
 }
 #reg:hover {
     color: rgb(219, 211, 0);
@@ -19,6 +20,8 @@ body {
     text-align: center;
     padding-bottom: 200px;
     padding-top: 200px;
+    align-items: center;
+
 }
 #page-div {
     margin-top: 60px;
@@ -45,6 +48,7 @@ label {
 }
 .label {
     text-decoration: bold;
+    align-content: center;
 }
 .input {
     display: inline-block;
@@ -55,6 +59,7 @@ label {
     margin-top: 10px;
     margin-right: 100px;
     text-align: center;
+    align-items: center;
 }
 
 input[type=submit] {
@@ -85,5 +90,6 @@ input[type=submit] {
     text-decoration: underline;
 }
 #message {
-    margin-right: 165px;
+    /* margin-right: 135px; */
+    align-items: center;
 }
