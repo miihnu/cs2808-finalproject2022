@@ -39,6 +39,9 @@ app.get("/login", function(req, res) {
 app.get("/changePage", function(req, res) {
     res.sendFile(__dirname + "/public/views/" + "index.html")
 })
+app.get("/music", function(req, res) {
+    res.sendFile(__dirname + "/public/views/" + "test.html")
+})
 app.use(express.json());
 
 app.get("/leaderboard", function(req, res) { 
