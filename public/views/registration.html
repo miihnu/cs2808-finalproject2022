@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--TODO Fuck bitches-->
     <head>
         <meta charset="UTF-8">
         <title>Registration and Login Page</title>
@@ -13,11 +14,15 @@
             <a href="registration">Registration Page</a>
             <a href="game">Game Page</a>
             <a href="login">Login Page</a>
+            <a href="music-gallery">Music/Gallery Page</a>
         </div>
         <div id="container">
             <div id="page-div">
                 <h2>Kanye said...</h2>
                 <h1><i>Register</i></h1>
+                <a href="login" class="button">
+                    <span>Peasant</span>
+                </a>
             </div>
             <div hidden id="log-out">
                 <p>You are already logged in</p>
@@ -31,12 +36,17 @@
                 <div>
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username">
-                    <p id="username-reqs"><u>Username has to be at least 5 characters, not exceeding 16 charactors total.></u></p>
+                    <p id="username-reqs">Username has to be at least 5 characters, not exceeding 16 charactors total.></p>
                 </div>
                 <div>
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password">
-                    <p id="password-reqs"><u>Password has to be at least 5 characters, not exceeding 16 charactors total.</u></p>
+                    <p id="password-reqs">Password has to be at least 5 characters, not exceeding 16 charactors total.</p>
+                </div>
+                <div>
+                    <label for="confirmpassword" id="confirmpasswordlabel">Confirm password</label>
+                    <input type="password" id="confirmpassword" name="confirmpassword">
+                    <p id="confirm-pass">Confirm password</p>
                 </div>
                 <div>
                     <input type="submit" value="Register" id="register">

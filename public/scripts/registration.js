@@ -52,6 +52,7 @@ function check() {
 
 let username = document.getElementById("username")
 let password = document.getElementById("password")
+// let confirmpass = document.getElementById("confirmpassword")
 let registerButton = document.getElementById("register")
 
 username.style.backgroundColor = "white";
@@ -61,6 +62,8 @@ password.style.backgroundColor = "white";
 username.addEventListener("input", checkUsername)
 password.addEventListener("input", checkPassword)
 
+// confirm.addEventListener("input", checkSecondPassword)
+// // TODO make function
 let usernameValid = false;
 let passwordValid = false;
 

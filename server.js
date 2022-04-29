@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const costFactor = 6;
 const salt = "teamjj";
 
+
 let authenticated = false;
 let currUser;
 
@@ -36,6 +37,9 @@ app.get("/game", function(req, res) {
 app.get("/login", function(req, res) {
     res.sendFile(__dirname + "/public/views/" + "login.html")
 })
+app.get("/music-gallery", function(req, res) {
+    res.sendFile(__dirname + "/public/views/" + "test.html")
+})
 app.get("/changePage", function(req, res) {
     res.sendFile(__dirname + "/public/views/" + "index.html")
 })
@@ -51,6 +55,7 @@ app.get("/leaderboard", function(req, res) {
         }
     })
 })
+
 app.get("/checkedLoggedIn", function(req, res) { 
     // console.log("Server received POST to /checkedLoggedIn...");
     if (authenticated) {
