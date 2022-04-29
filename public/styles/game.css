@@ -3,9 +3,9 @@
     margin-top: 10px;
 }
 
-canvas {
+/* canvas {
     style: flex;
-}
+} */
 
 #newGameButton {
     text-align: center;
@@ -38,6 +38,7 @@ canvas {
     margin-right: auto;
     width: 50%;
     margin-top: 60px;
+    height: 80px;
 
 }
 
