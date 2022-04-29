@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     xhr.send();
 });
 
-// const loadLeaderboard = setInterval(leaderboard, 10000)
+const loadLeaderboard = setInterval(leaderboard, 10000)
 
 function leaderboard() {
     let xhr = new XMLHttpRequest
@@ -73,9 +73,3 @@ function authenticator() {
         authenticated = false;
     }
 }
-
-
-
-// implement function that upon gameend, saves user highscore if its better than their previous high highscore and 
-// loads that highscore to leaderboard database, which is then called to see their sorted list.
-

@@ -56,13 +56,15 @@ let registerButton = document.getElementById("register")
 
 username.style.backgroundColor = "white";
 password.style.backgroundColor = "white";
-
+document.getElementById("confirm-password").style.backgroundColor = "white"
 
 username.addEventListener("input", checkUsername)
 password.addEventListener("input", checkPassword)
+document.getElementById("confirm-password").addEventListener("input", checkConfirmPassword)
 
 let usernameValid = false;
 let passwordValid = false;
+let confirmValid = false;
 
 function checkUsername(event) {
     username.style.backgroundColor = "white";
@@ -86,10 +88,22 @@ function checkPassword(event) {
         document.getElementById("password-reqs").innerText = "";
     }
 }
+function checkConfirmPassword(event) {
+    let temp = document.getElementById("confirm-password")
+    temp.style.backgroundColor = "white";
+    document.getElementById("confirm-pass").innerHTML ="<u>Passwords have to match</u>";
+    confirmValid = false;
+
+    if (temp.value === document.getElementById("password").value) {
+        confirmValid = true;
+        temp.style.backgroundColor = "lightgreen";
+        document.getElementById("confirm-pass").innerText = "";
+    }
+}
 function validate(event) {
     let message = document.getElementById("message");
     message.style.display = "block";
-    if (!(usernameValid && passwordValid)) {
+    if (!(usernameValid && passwordValid && confirmValid)) {
         event.preventDefault();
         if (!usernameValid && !passwordValid) {
             message.innerText = "invalid username and password";
@@ -97,9 +111,9 @@ function validate(event) {
             message.innerText = "invalid username";
         } else if (!passwordValid && usernameValid) {
             message.innerText = "invalid password";
-        } else {
-            message.innerText = "undefined behavior"
-        }
+        } else if (!passwordValid || !confirmValid) {
+            message.innerText = "passwords dont match"
+        } 
         
     } else {
         register(event);
