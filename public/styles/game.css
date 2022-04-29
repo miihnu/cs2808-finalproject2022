@@ -5,8 +5,6 @@
 
 #newGameButton {
     text-align: center;
-<<<<<<< Updated upstream:public/game.css
-=======
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
     font-weight: bold;
@@ -75,6 +73,4 @@ h2 {
     display: flex;
     justify-content: space-evenly;
     margin-left: 85px;
-
->>>>>>> Stashed changes:public/styles/game.css
 }

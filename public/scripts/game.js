@@ -9,7 +9,7 @@ ctx = canvas.getContext("2d");
 var kanye = new Image();
 kanye.src = "img/ye.PNG";
 
-var coincount = 4;
+var coincount = 0;
 
 var bossActive = false;
 var bossEaten = 0;
@@ -168,8 +168,8 @@ function spawnEnemy() {
         }
     }
 
-    if (enemyx >= canvas.width - rival.width) {
-        enemyx = canvas.width - rival.width;
+    if (enemyx >= canvas.width - drake.width) {
+        enemyx = canvas.width - drake.width;
     } else if (enemyx <= 0) {
         enemyx = 0;
     }

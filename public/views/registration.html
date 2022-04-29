@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration and Login Page</title>
+        <script src="scripts/registration.js" defer></script>
+        <link rel="stylesheet" href="styles/navbar.css">
+        <link rel="stylesheet" href="styles/registration.css">
+        <link rel="icon" href="img/Kanye.jpg">
+    </head>
+    <body>
+        <div class="nav">
+            <a href="main">Main Page</a>
+            <a href="registration">Registration Page</a>
+            <a href="game">Game Page</a>
+            <a href="login">Login Page</a>
+        </div>
+        <div id="container">
+            <div id="page-div">
+                <h2>Kanye said...</h2>
+                <h1><i>Register</i></h1>
+            </div>
+            <div hidden id="log-out">
+                <p>You are already logged in</p>
+                <p>Do you wish to log out and create a new account?</p>
+                <button id="log-out-button">Yes</button>
+            </div>
+            <form method="POST" id="registration" action="/attempt-register">
+                <div>
+                    <p><b>Create a username and password</b></p>
+                </div>
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                    <p id="username-reqs"><u>Username has to be at least 5 characters, not exceeding 16 charactors total.></u></p>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <p id="password-reqs"><u>Password has to be at least 5 characters, not exceeding 16 charactors total.</u></p>
+                </div>
+                <div>
+                    <input type="submit" value="Register" id="register">
+                </div>
+            </form>
+            <div>
+                <p hidden id="message"></p>
+            </div>
+        </div>
+    </body>
+</html>

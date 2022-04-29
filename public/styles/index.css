@@ -1,0 +1,90 @@
+body {
+    font-family: Georgia, serif, 'Times New Roman', Times;
+    background-color: beige;
+    color: black;
+}
+#container {
+    display:flex;
+    flex-direction: column;
+    padding: 5px;
+}
+#container > div {
+    padding: 10px;
+}
+
+#kanye-form-div, #quote-div, #quote, #log-out-div {
+    background-color: rgb(129, 195, 239);
+    color: black;
+    text-align: center;
+    padding-bottom: 200px;
+    padding-top: 200px;
+}
+#user-quote {
+    display: inline-block;
+    background-color: white;
+    text-decoration: solid;
+    padding: 10px 10px;
+    width: 60%;
+}
+#quote {
+    color: white;
+}
+#kanye {
+    margin-top: 7px;
+}
+#page-div {
+    margin-top: 30px;
+    text-align: center;
+    /* align-self: center;
+    justify-content: center;
+    display:inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: white; */
+}
+#log-out-button {
+    display:flex;
+    color:greenyellow;
+    background-color: black;
+    border-radius: 20px;
+    border:0px solid greenyellow;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    margin: 0% auto;
+}
+#log-out-button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.button {
+    display:inline;
+    color: greenyellow;
+    background-color: black;
+    margin-top: 5px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    text-decoration: none;
+    border-style: none;
+    text-align: center;
+}
+
+.button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+#log-out-div {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#footer {
+    width: 100%;
+    align-self: center;
+    background-color: lightsalmon;
+    text-align: center;
+}
+

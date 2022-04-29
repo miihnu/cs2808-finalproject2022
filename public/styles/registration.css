@@ -1,0 +1,47 @@
+body {
+    font-family: Georgia, serif, 'Times New Roman', Times;
+    background-color: beige;;
+    color:black;
+}
+
+#container {
+    display:flex;
+    flex-direction: column;
+    padding: 5px;
+    text-align: center;
+
+}
+#container > div {
+    padding: 10px;
+    
+}
+
+#registration, #log-out {
+    background-color: red;
+    color: black;
+    text-align: center;
+}
+#registration {
+    padding-bottom: 20px;
+}
+#page-div {
+    margin-top: 35px;
+    text-align: center;
+    background-color: white;;
+    color: black;
+}
+button {
+    display:inline;
+    color: yellow;
+    background-color: black;
+    margin-top: 5px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    text-decoration: none;
+    border-style: none;
+    text-align: center;
+}
+button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

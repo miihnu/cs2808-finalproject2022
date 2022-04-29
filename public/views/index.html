@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Final Project</title>
+        <link rel="stylesheet" href="styles/navbar.css">
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="icon" href="img/Kanye.jpg">
+        <script src="scripts/index.js" defer></script>
+    </head>
+    <nav>
+        <div class="nav">
+            <a href="main">Main Page</a>
+            <a href="registration">Registration Page</a>
+            <a href="game">Game Page</a>
+            <a href="login">Login Page</a>
+        </div>
+    </nav>
+    <div id="container">
+        <div id="page-div">
+            <h2>Kanye says...</h2>
+            <h1 id="hello-user"><i>Welcome</i></h1>
+        </div>
+        
+        <div id="quote-div">
+            <p class ="kanye" id="user-quote"></p>
+        </div>
+        <div id="kanye-form-div">
+            <form method="POST" id="kanye">
+                <label class="kanye" id ="kanyeLabel" for="kanye">Kanye Quote</label>
+                <input type="button" id="kanyeButton" class = 'button' name="kanye" value="Enlighten Me">
+            </form>
+        </div>
+        <div id="quote">
+            <p class="kanye" id= "ye">Kanye West: </p>
+            <p class="kanye" id="kanyeQuote"></p>
+            <button class = 'button' id="save-quote">Save Quote?</button>
+        </div>
+        <div hidden id="log-out-div" >
+            <button id="log-out-button">Log Out</button> 
+        </div>
+        <footer id="footer">
+            <h4 id="authors">
+                Developers: Jane Lee & Joel Jones
+            </h4>
+        </footer>
+    </div>
+</html>
